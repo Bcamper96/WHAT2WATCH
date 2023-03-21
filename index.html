@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What2Watch</title>
+      
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- M: Added google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body class="flex w-full">
+    <aside class="flex flex-col m-3 w-1/5" >
+      <div id="filters-container" class="flex flex-col justify-center pr-3">
+        <!-- M: Added Title style -->
+        <h1 id="title" class="pt-2 mb-3 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">WHAT2WATCH</h1>
+  
+        <!-- M: added Tailwind Genre dropdown menu -->
+        <!-- Genre Dropdown -->
+        <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Genre <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <div id="dropdownBgHover" class="hidden z-10 w-48 bg-white rounded shadow dark:bg-gray-700">
+          <ul class="genre-ul p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBgHoverButton">
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-1" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Action</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-2" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Animation</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-3" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Comedy</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-4" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-4" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Drama</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-5" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Documentary</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-6" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-6" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Family</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-7" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Fantasy</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-8" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-8" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Fiction</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-9" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-9" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">History</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-10" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-10" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Horror</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-11" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-11" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Musical</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-12" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-12" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Romance</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-13" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-13" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Sci-Fi</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-14" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-14" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Sport</label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-15" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-15" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Suspense</label>
+              </div>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-16" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-16" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">Thriller</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+         
+        <!-- M: Dropdown menu for MPA Rating -->
+        <button id="dropdownCheckboxButton1" data-dropdown-toggle="dropdownDefaultCheckbox1" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">MPA Rating <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <div id="dropdownDefaultCheckbox1" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
+          <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-17" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-17" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> G </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-18" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-18" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> PG </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-19" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-19" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> PG-13 </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-20" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-20" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> R </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-21" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-21" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> NC-17 </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- M: Country of Origin Dropdown Menu -->
+        <button id="dropdownCheckboxButton2" data-dropdown-toggle="dropdownDefaultCheckbox2" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button">Country of Origin <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <div id="dropdownDefaultCheckbox2" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
+          <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCheckboxButton">
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-22" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-22" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> United States </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-23" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-23" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Brazil </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-24" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-24" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> China </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-25" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-25" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Denmark </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-26" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-26" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> France </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-27" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-27" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Germany </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-28" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-28" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> India </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-29" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-29" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Italy </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-30" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-30" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Japan </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-31" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-31" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Russia </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-32" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-32" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Spain </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-33" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-33" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> South Korea </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-34" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-34" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Sweden </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-35" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-35" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> Turkey </label>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <input id="checkbox-item-36" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="checkbox-item-36" class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"> United Kingdom </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+  
+            <!-- Years Range -->
+            <button id="dropdownCheckboxButton3" data-dropdown-toggle="dropdownDefaultCheckbox3" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Year <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <div id="dropdownDefaultCheckbox3" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
+              <div class="p-5 bg-white">
+              <div id="slider-range"></div>
+              <div class="flex justify-between "><p class="text-black" id="min">1950</p><p  id="pt"></p><p class="text-black" id="max">2022</p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Run Time Range-->
+            <button id="dropdownCheckboxButton4" data-dropdown-toggle="dropdownDefaultCheckbox4" class="w-2/3 m-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" type="button"> Run-Time <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <div id="dropdownDefaultCheckbox4" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 4510px);">
+                  <div class="p-5 bg-white">
+                    <div id="slider-range1"></div>
+                    <div class="flex justify-between "><p class="text-black" id="min1">60</p><p id="pt"></p><p class="text-black" id="max1">300</p></div></div>
+                  </div>
+              </div>
+            </div>
+
+   
+  </div>
+  <button type="button" id="submit-btn" class="w-40 ml-9 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center  m-10 mr-2 mb-2">Submit</button>
+</aside>
+<main class="w-3/5 p-3">
+  <div id="title-container" class="border-b-4 border-purple-800">     
+    <button type="button" onclick="displayQuote()" id="quote-btn" class="w-1/8 mx-3 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1.5 text-center mr-2 mb-2"> Quote  <i class='far fa-comments'></i></button>
+      <h2 id="Quote" class="m-5 italic">Quote here</h2>
+    </div>
+    
+    <div id="recommended">
+      <h3 class="ml-5 p-4">Recommended</h3>
+   </div>
+   <div id="movie-container" class="grid grid-rows-5 grid-cols-5 gap-8" ></div>
+
+  
+  </main>
+  <aside class="w-1/5 ml-5 p-2">
+    <div id="watch-container" class="m-3">
+      <h2 id="watch" class="m-2 pt-1 rounded-b-lg bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600">Watch Later</h2>
+    </div>
+  </aside>
+
+<!--Script Links-->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://kit.fontawesome.com/1d37754851.js" crossorigin="anonymous"></script>  
+  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+  <script src="./assets/script.js"></script>
+
+</body>
+
+</html>
