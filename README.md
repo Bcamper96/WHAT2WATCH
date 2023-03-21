@@ -6,9 +6,7 @@ WHAT2WATCH is our first project in which we wanted to create a simple movie data
 ![Screenshot](https://github.com/VladaBolotova/Project1-Movie-App/blob/main/assets/IMG/SS1.png)
 ![Screenshot](https://github.com/VladaBolotova/Project1-Movie-App/blob/main/assets/IMG/SS2.png)
 ![Screen](https://github.com/VladaBolotova/Project1-Movie-App/blob/main/assets/IMG/SS3.png)
-## Deployed Link
-Link to deployed application:
-https://vladabolotova.github.io/Project1-Movie-App/
+
 ## Technologies Used
 Online Movie Database |
 https://rapidapi.com/andruxnet/api/random-famous-quotes
